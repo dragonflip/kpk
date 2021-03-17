@@ -18,11 +18,11 @@
           <label class="mt-3">Текст новини: </label>
         </div>
         <vue-editor v-model="content"></vue-editor>
-        <div class="mt-5">
-          <button class="my-2 mx-2 d-inline button gray">
+        <div class="my-5">
+          <button class="mx-2 d-inline button admin-button gray">
             Попередній перегляд
           </button>
-          <button class="my-2 mx-2 d-inline button">Створити</button>
+          <button class="mx-2 d-inline button admin-button">Створити</button>
         </div>
       </form>
     </div>
@@ -48,18 +48,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.news-text {
-  height: 60vh;
-  background-color: rgb(245, 245, 245);
-}
-
-.gray {
-  background-color: rgb(117, 117, 117);
-}
-
-.button {
-  width: 220px;
-}
-</style>

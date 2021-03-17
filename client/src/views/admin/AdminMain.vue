@@ -22,6 +22,10 @@
           <img src="@/assets/person.svg" />
           Користувачі
         </router-link>
+         <router-link class="ml-3 button" to="/pages">
+          <img src="@/assets/page.svg" />
+          Сторінки
+        </router-link>
       </div>
       <div></div>
     </div>

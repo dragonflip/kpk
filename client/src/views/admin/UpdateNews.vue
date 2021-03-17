@@ -19,12 +19,12 @@
           <label class="mt-3">Текст новини: </label>
         </div>
         <div class="news-text">Тут редактор</div>
-        <div class="mt-5">
-          <button class="my-2 mx-2 d-inline button gray">
-            Попередній перегляд
-          </button>
-          <button class="my-2 mx-2 d-inline button">Створити</button>
-        </div>
+      <div class="my-5">
+        <button class="mx-2 d-inline button admin-button gray">
+          Попередній перегляд
+        </button>
+        <button class="mx-2 d-inline button admin-button">Створити</button>
+      </div>
       </form>
     </div>
   </div>

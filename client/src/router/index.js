@@ -9,6 +9,8 @@ import AddNews from '../views/admin/AddNews.vue'
 import UpdateNews from '../views/admin/UpdateNews.vue'
 import AdminSpecialty from '../views/admin/AdminSpecialty.vue'
 import AdminDepartment from '../views/admin/AdminDepartment.vue'
+import AdminPages from '../views/admin/AdminPages.vue'
+import CreatePage from '../views/admin/CreatePage.vue'
 
 Vue.use(VueRouter)
 
@@ -57,6 +59,16 @@ const routes = [
     path: '/admin-department',
     name: 'AdminDepartment',
     component: AdminDepartment
+  },
+  {
+    path: '/pages',
+    name: 'AdminPages',
+    component: AdminPages
+  },
+  {
+    path: '/create-page',
+    name: 'CreatePage',
+    component: CreatePage
   },
 ]
 
