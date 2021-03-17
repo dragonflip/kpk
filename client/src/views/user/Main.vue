@@ -152,6 +152,10 @@ a:hover{
   text-decoration: none;
 }
 
+.main-info{
+  height: 200px;
+}
+
 @media (max-width: 500px) {
 .description {
     font-size: 11px;
