@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-container">
     <div class="container mt-5">
       <div>
         <router-link class="ml-3 button" to="/admin-news">
@@ -7,24 +7,23 @@
           Новини
         </router-link>
         <router-link class="ml-3 button" to="/admin-department">
-            <img src="@/assets/reading-book.svg" class="mb-1" />
+          <img src="@/assets/reading-book.svg" class="mb-1" />
           Відділення
         </router-link>
         <router-link class="ml-3 button" to="/admin-specialty">
-        <img src="@/assets/graduation-hat.svg" class="mb-1" />
+          <img src="@/assets/graduation-hat.svg" class="mb-1" />
           Спеціальності
         </router-link>
         <router-link class="ml-3 button" to="#">
-            <img src="@/assets/book.svg" class="mb-1" />
+          <img src="@/assets/book.svg" class="mb-1" />
           Циклові комісії
         </router-link>
         <router-link class="ml-3 button" to="#">
-            <img src="@/assets/person.svg" />
+          <img src="@/assets/person.svg" />
           Користувачі
         </router-link>
       </div>
-      <div>
-      </div>
+      <div></div>
     </div>
   </div>
 </template>
@@ -40,14 +39,14 @@
 
 @media (max-width: 992px) {
   .button {
-  width: 200px;
-  margin-left: 0;
-  margin-top: 1rem;
-  position:relative;
-}
+    width: 200px;
+    margin-left: 0;
+    margin-top: 1rem;
+    position: relative;
+  }
 
-.container{
-  text-align: center;
-}
+  .container {
+    text-align: center;
+  }
 }
 </style>

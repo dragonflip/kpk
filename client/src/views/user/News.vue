@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-container">
     <div class="container">
       <div class="row">
         <div class="mt-3 col-lg-4 col-12" v-for="i in 5" :key="i">
@@ -24,9 +24,9 @@
                   карантин, встановлений постановою Уряду від 09.12.2020 р. №
                   1236. Про це ми писали у матеріалі.
                 </p>
-                
+
                 <router-link to="/news-details" class="button">
-                    Детальніше
+                  Детальніше
                 </router-link>
               </div>
             </div>
@@ -73,14 +73,14 @@
 }
 .card:hover .button {
   visibility: visible;
-  transition-delay: .4s;
+  transition-delay: 0.4s;
 }
-.button{
-    padding: 6px 10%;
-    visibility: hidden;
-    transition: visibility 0.4s;
-    transition-delay: -0.4s;
-    display: inline-block;
+.button {
+  padding: 6px 10%;
+  visibility: hidden;
+  transition: visibility 0.4s;
+  transition-delay: -0.4s;
+  display: inline-block;
 }
 
 .news-title {
@@ -104,9 +104,9 @@
 .news-details p {
   text-align: left;
   font-size: 13px;
-  overflow:hidden;
-  display:inline-block;
-  word-wrap:break-word;
+  overflow: hidden;
+  display: inline-block;
+  word-wrap: break-word;
   max-height: 4.5em;
   line-height: 1.5em;
   margin-bottom: 4px;

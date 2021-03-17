@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-container">
     <div class="main">
       <div class="main-page">
         <img src="@/assets/college.jpg" class="image back" alt="background" />
@@ -29,60 +29,69 @@
           <div class="row">
             <div class="col">
               <img
-              src="@/assets/knowledge.svg"
-              class="d-inline-block mt-3 icon"
-              alt="icon"
-            />
-            <p class="description">Новітні методи <br> навчання</p>
+                src="@/assets/knowledge.svg"
+                class="d-inline-block mt-3 icon"
+                alt="icon"
+              />
+              <p class="description">
+                Новітні методи <br />
+                навчання
+              </p>
             </div>
             <div class="col">
-                <img
-              src="@/assets/teacher.svg"
-              class="d-inline-block mt-3 icon"
-              alt="icon"
-            />
-            <p>Круті<br>викладачі</p>
+              <img
+                src="@/assets/teacher.svg"
+                class="d-inline-block mt-3 icon"
+                alt="icon"
+              />
+              <p>Круті<br />викладачі</p>
             </div>
             <div class="col">
-                <img
-              src="@/assets/book.svg"
-              class="d-inline-block mt-3 icon"
-              alt="icon"
-            />
-            <p>Велика<br>бібліотека</p>
+              <img
+                src="@/assets/book.svg"
+                class="d-inline-block mt-3 icon"
+                alt="icon"
+              />
+              <p>Велика<br />бібліотека</p>
             </div>
             <div class="col">
-                <img
-              src="@/assets/knowledge.svg"
-              class="d-inline-block mt-3 icon"
-              alt="icon"
-            />
-            <p>Новітні методи <br> навчання</p>
+              <img
+                src="@/assets/knowledge.svg"
+                class="d-inline-block mt-3 icon"
+                alt="icon"
+              />
+              <p>
+                Новітні методи <br />
+                навчання
+              </p>
             </div>
             <div class="col">
-                <img
-              src="@/assets/knowledge.svg"
-              class="d-inline-block mt-3 icon"
-              alt="icon"
-            />
-            <p>Новітні методи <br> навчання</p>
+              <img
+                src="@/assets/knowledge.svg"
+                class="d-inline-block mt-3 icon"
+                alt="icon"
+              />
+              <p>
+                Новітні методи <br />
+                навчання
+              </p>
             </div>
           </div>
         </div>
-      
       </div>
-      <div class="main-info">
-        Тут буде інфа про то, які ми крутецькі
-      </div>
+      <div class="main-info">Тут буде інфа про то, які ми крутецькі</div>
     </div>
   </div>
 </template>
 
 <style>
+.page-container {
+  min-height: 100vh;
+}
 .main-page {
   width: 100%;
   display: flex;
-  position:relative;
+  position: relative;
   flex-direction: column;
 }
 
@@ -131,11 +140,11 @@ h2 {
 }
 
 .icon {
-    width: 25%;
+  width: 25%;
 }
 
 .button {
-  background-color: #13CD95;
+  background-color: #13cd95;
   border: none;
   color: white;
   padding: 12px 15px;
@@ -143,66 +152,66 @@ h2 {
   display: block;
 }
 
-.button:hover{
+.button:hover {
   background-color: #13bb88;
   color: white;
 }
 
-a:hover{
+a:hover {
   text-decoration: none;
 }
 
-.main-info{
+.main-info {
   height: 200px;
 }
 
 @media (max-width: 500px) {
-.description {
+  .description {
     font-size: 11px;
-}
-.back {
-  width: 100%;
-  height: 80vh;
-  object-fit: cover;
-}
+  }
+  .back {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+  }
 
-.name {
+  .name {
     font-size: 22px;
     margin-top: 30%;
     margin-left: 0;
     text-align: center;
-}
+  }
 
-.logo {
+  .logo {
     margin-top: 0%;
     width: 45%;
-}
+  }
 }
 
 @media (min-width: 500px) and (max-width: 992px) {
   .description {
     font-size: 11px;
-}
-.back {
-  width: 100%;
-  height: 80vh;
-  object-fit: cover;
-}
+  }
+  .back {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+  }
 
-.name {
+  .name {
     font-size: 22px;
     margin-top: 15%;
     margin-left: 0;
     text-align: center;
-}
+  }
 
-.logo {
+  .logo {
     margin-top: 0%;
     width: 20%;
-}
-a:hover {
-  color: black !important;
-  text-decoration: none;
-}
+  }
+  a:hover {
+    color: black !important;
+    text-decoration: none;
+  }
 }
 </style>

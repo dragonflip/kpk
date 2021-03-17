@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-container">
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-8 col-12">
@@ -27,29 +27,26 @@
             </p>
           </div>
         </div>
-        <div class="col-md-1 col-0">
-        </div>
+        <div class="col-md-1 col-0"></div>
         <div class="col-md-3 col-12">
           <h6 style="font-weight: 600; font-size: 18px">Інші новини</h6>
           <div class="row">
-            <router-link to="#" v-for="i in 2" :key="i" >
-            <div class="card">
+            <router-link to="#" v-for="i in 2" :key="i">
+              <div class="card">
                 <div class="text-right p-0 text-muted">
-                <h6 class="mb-0" style="font-size: 12px">
-                  02.03.2021
-                </h6>
+                  <h6 class="mb-0" style="font-size: 12px">02.03.2021</h6>
+                </div>
+                <img
+                  alt="news"
+                  class="more-news p-0"
+                  src="https://need4study.com/uploads/institutions/images/2041596/.resized/564x400/user_photo_19926.jpg?v=1525205060"
+                />
+                <div>
+                  <h6 class="news-title">
+                    <strong>Карантин продовжено до 07.03</strong>
+                  </h6>
+                </div>
               </div>
-              <img
-                alt="news"
-                class="more-news p-0"
-                src="https://need4study.com/uploads/institutions/images/2041596/.resized/564x400/user_photo_19926.jpg?v=1525205060"
-              />
-              <div>
-                <h6 class="news-title">
-                  <strong>Карантин продовжено до 07.03</strong>
-                </h6>
-              </div>
-            </div>
             </router-link>
           </div>
         </div>
@@ -71,26 +68,26 @@
   width: 100%;
 }
 
-.more-news{
-    height: 120px;
-    width: 100%;
-    object-fit: cover;
+.more-news {
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
 }
 
-.card{
-    border: 0;
+.card {
+  border: 0;
 }
 
-.news-title{
-    font-size: 14px;
-    color: rgb(87, 87, 87);
+.news-title {
+  font-size: 14px;
+  color: rgb(87, 87, 87);
 }
 
-.news-title:hover{
-    color: black !important;
+.news-title:hover {
+  color: black !important;
 }
 
-.row{
-    height: fit-content;
+.row {
+  height: fit-content;
 }
 </style>
