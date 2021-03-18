@@ -20,10 +20,10 @@
         </div>
         <div class="news-text">Тут редактор</div>
       <div class="my-5">
-        <button class="mx-2 d-inline button admin-button gray">
+        <button class="mx-2 mt-2 d-inline button admin-button gray">
           Попередній перегляд
         </button>
-        <button class="mx-2 d-inline button admin-button">Створити</button>
+        <button class="mx-2 mt-2 d-inline button admin-button">Створити</button>
       </div>
       </form>
     </div>
