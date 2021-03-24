@@ -26,7 +26,7 @@
                   1236. Про це ми писали у матеріалі.
                 </p>
 
-                <router-link to="/news-details" class="button">
+                <router-link to="/news-details" class="button details-button">
                   Детальніше
                 </router-link>
               </div>
@@ -39,7 +39,7 @@
 </template>
 
 <style>
-.button {
+.details-button {
   width: fit-content;
 }
 
@@ -67,11 +67,11 @@
   height: 85%;
   visibility: visible;
 }
-.card:hover .button {
+.card:hover .details-button {
   visibility: visible;
   transition-delay: 0.4s;
 }
-.button {
+.details-button {
   padding: 6px 10%;
   visibility: hidden;
   transition: visibility 0.4s;

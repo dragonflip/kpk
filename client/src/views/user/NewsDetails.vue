@@ -45,7 +45,7 @@
                   src="https://need4study.com/uploads/institutions/images/2041596/.resized/564x400/user_photo_19926.jpg?v=1525205060"
                 />
                 <div>
-                  <h6 class="news-title">
+                  <h6 class="title-more-news">
                     <strong>Карантин продовжено до 07.03</strong>
                   </h6>
                 </div>
@@ -87,12 +87,12 @@
   color: rgb(134, 134, 134);
 } 
 
-.news-title {
+.title-more-news {
   font-size: 14px;
   color: rgb(87, 87, 87);
 }
 
-.news-title:hover {
+.title-more-news:hover {
   color: black !important;
 }
 

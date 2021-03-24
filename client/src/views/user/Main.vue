@@ -107,7 +107,7 @@
                     у матеріалі.
                   </p>
 
-                  <router-link to="/news-details" class="button">
+                  <router-link to="/news-details" class="button details-button">
                     Детальніше
                   </router-link>
                 </div>
