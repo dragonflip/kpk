@@ -3,6 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="mt-3 col-lg-4 col-12" v-for="i in 5" :key="i">
+          <p id="date">07.02.2020</p>
           <div class="card">
             <img
               alt="news"
@@ -37,14 +38,9 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .button {
   width: fit-content;
-}
-
-.search {
-  position: inherit;
-  display: unset;
 }
 
 .card {
@@ -100,6 +96,13 @@
   transition: height 0.4s, visibility 0.4s;
   font-size: 13px;
 }
+
+#date{
+  margin: 0;
+  text-align: right;
+  font-size: 12px;
+  color: rgb(134, 134, 134);
+} 
 
 .news-details p {
   text-align: left;

@@ -4,6 +4,7 @@
       <div class="row">
         <div class="col-md-8 col-12">
           <div class="text-center">
+            <p id="date">07.02.2020</p>
             <h4>
               <strong>Карантин продовжено до 07.03</strong>
             </h4>
@@ -26,6 +27,8 @@
               Уряду від 09.12.2020 р. № 1236. Про це ми писали у матеріалі.
             </p>
           </div>
+        <div>
+        </div>
         </div>
         <div class="col-md-1 col-0"></div>
         <div class="col-md-3 col-12">
@@ -77,6 +80,12 @@
 .card {
   border: 0;
 }
+#date{
+  margin: 0;
+  text-align: right;
+  font-size: 14px;
+  color: rgb(134, 134, 134);
+} 
 
 .news-title {
   font-size: 14px;
