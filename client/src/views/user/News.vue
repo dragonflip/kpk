@@ -64,21 +64,13 @@
   margin-top: 12px;
 }
 .card:hover .news-details {
+  margin-top: 0px;
   height: 85%;
-  visibility: visible;
-}
-.card:hover .details-button {
-  visibility: visible;
-  transition-delay: 0.4s;
 }
 .details-button {
   padding: 6px 10%;
-  visibility: hidden;
-  transition: visibility 0.4s;
-  transition-delay: -0.4s;
   display: inline-block;
 }
-
 .news-title {
   position: absolute;
   bottom: 0;
@@ -87,13 +79,13 @@
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.726);
   transition: height 0.4s;
+  overflow: hidden;
 }
 
 .news-details {
   color: white;
-  height: 0;
-  visibility: hidden;
-  transition: height 0.4s, visibility 0.4s;
+  margin-top: 80px;
+  transition: margin-top 0.8s;
   font-size: 13px;
 }
 
