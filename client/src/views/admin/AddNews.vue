@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
     <div class="container">
-      <form>
+      <form method="post">
         <div class="mt-4">
           <h4>Створення новини</h4>
         </div>
@@ -9,6 +9,7 @@
           <label>Заголовок новини: </label>
           <input
             type="text"
+            name = "name"
             class="ml-4 w-50 w-md-100 form-control"
             maxlength="50"
             required
@@ -17,6 +18,7 @@
           <input
             type="file"
             ref="fileInput"
+            name = "img"
             accept=".jpg,.jpeg,.png"
             hidden="hidden"
             @change="onFileChange"

@@ -4,11 +4,15 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-		"start": "node server/server.js",
-		"dev": "nodemon server/server.js",
-		"install": "cd client && npm i && cd.. && cd server && npm i",
-		"build": "cd client && npm run build"
-	},
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "install": "cd client && npm i && cd.. && cd server && npm i",
+    "build": "cd client && npm run build"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mysql2": "^2.2.5"
+  }
 }

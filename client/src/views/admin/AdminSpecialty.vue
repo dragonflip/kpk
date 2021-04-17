@@ -103,51 +103,53 @@
           hide-footer
           hide-header
         >
-          <div
-            class="d-block text-left"
-            style="font-family: 'Montserrat', sans-serif"
-          >
-            <h3 class="mb-3"><strong>Додати спеціальність</strong></h3>
-            <label>Назва спеціальності</label>
-            <input type="text" class="form-control" />
-
-            <label class="mt-2">Форма здобуття освіти</label>
-            <div class="ml-2">
-              <input type="checkbox" />
-              Денна
-            </div>
-            <div class="ml-2">
-              <input type="checkbox" />
-              Заочна
-            </div>
-
-            <label class="mt-2">Кваліфікація</label>
-            <input type="text" class="form-control" />
-
-            <label class="mt-2">Термін навчання (на основі БЗСО)</label>
-            <input type="text" class="form-control" />
-
-            <label class="mt-2">Термін навчання (на основі ПЗСО)</label>
-            <input type="text" class="form-control" />
-
-            <label class="mt-2">Опис</label>
-            <input type="text" class="form-control" />
-          </div>
-          <div class="mt-3 text-center">
-            <button
-              class="mx-2 button add-button"
-              @click="$bvModal.hide('modal-add')"
+          <form method="post">
+            <div
+              class="d-block text-left"
+              style="font-family: 'Montserrat', sans-serif"
             >
-              Додати
-            </button>
-            <button
-              class="mx-2 button add-button"
-              style="background-color: rgb(172, 172, 172)"
-              @click="$bvModal.hide('modal-add')"
-            >
-              Назад
-            </button>
-          </div>
+              <h3 class="mb-3"><strong>Додати спеціальність</strong></h3>
+              <label>Назва спеціальності</label>
+              <input type="text" name ="name" class="form-control" />
+
+              <label class="mt-2">Форма здобуття освіти</label>
+              <div class="ml-2">
+                <input type="checkbox" />
+                Денна
+              </div>
+              <div class="ml-2">
+                <input type="checkbox" />
+                Заочна
+              </div>
+
+              <label class="mt-2">Кваліфікація</label>
+              <input type="text" name ="qualification" class="form-control" />
+
+              <label class="mt-2">Термін навчання (на основі БЗСО)</label>
+              <input type="text" name = "period" class="form-control" />
+
+              <label class="mt-2">Термін навчання (на основі ПЗСО)</label>
+              <input type="text" class="form-control" />
+
+              <label class="mt-2">Опис</label>
+              <input type="text" name = "description" class="form-control" />
+            </div>
+            <div class="mt-3 text-center">
+              <button
+                class="mx-2 button add-button"
+                @click="$bvModal.hide('modal-add')"
+              >
+                Додати
+              </button>
+              <button
+                class="mx-2 button add-button"
+                style="background-color: rgb(172, 172, 172)"
+                @click="$bvModal.hide('modal-add')"
+              >
+                Назад
+              </button>
+            </div>
+          </form>
         </b-modal>
       </div>
     </div>

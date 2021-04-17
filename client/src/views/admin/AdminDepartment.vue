@@ -96,37 +96,39 @@
           hide-footer
           hide-header
         >
-          <div
-            class="d-block text-left"
-            style="font-family: 'Montserrat', sans-serif"
-          >
-            <h3 class="mb-3"><strong>Додати відділення</strong></h3>
-            <label>Назва відділення</label>
-            <input type="text" class="form-control" />
-
-            <label class="mt-2">ПІБ завідувача</label>
-            <input type="text" class="form-control" />
-
-            <label class="mt-2">Контакти відділення</label>
-            <input type="text" class="form-control" />
-
-            <label class="mt-2">Фото</label>
-          </div>
-          <div class="mt-3 text-center">
-            <button
-              class="mx-2 button add-button"
-              @click="$bvModal.hide('modal-add')"
+          <form method="post">
+            <div
+              class="d-block text-left"
+              style="font-family: 'Montserrat', sans-serif"
             >
-              Додати
-            </button>
-            <button
-              class="mx-2 button add-button"
-              style="background-color: rgb(172, 172, 172)"
-              @click="$bvModal.hide('modal-add')"
-            >
-              Назад
-            </button>
-          </div>
+              <h3 class="mb-3"><strong>Додати відділення</strong></h3>
+              <label>Назва відділення</label>
+              <input type="text" name = "name" class="form-control" />
+
+              <label class="mt-2">ПІБ завідувача</label>
+              <input type="text" name="head" class="form-control" />
+
+              <label class="mt-2">Контакти відділення</label>
+              <input type="text" name= "contacts" class="form-control" />
+
+              <label class="mt-2">Фото</label>
+            </div>
+            <div class="mt-3 text-center">
+              <button
+                class="mx-2 button add-button"
+                @click="$bvModal.hide('modal-add')"
+              >
+                Додати
+              </button>
+              <button
+                class="mx-2 button add-button"
+                style="background-color: rgb(172, 172, 172)"
+                @click="$bvModal.hide('modal-add')"
+              >
+                Назад
+              </button>
+            </div>
+          <form>
         </b-modal>
       </div>
     </div>
