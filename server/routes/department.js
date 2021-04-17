@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
     name: req.body.name,
     head: req.body.head,
     contacts: req.body.contacts,
-    image: "треба добавити",
+    image: req.body.image,
   };
 
   await db.query("INSERT INTO department set ?", department);

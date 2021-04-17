@@ -103,42 +103,69 @@
           hide-footer
           hide-header
         >
-          <form method="post">
+          <form @submit.prevent="addSpecialty()">
             <div
               class="d-block text-left"
               style="font-family: 'Montserrat', sans-serif"
             >
               <h3 class="mb-3"><strong>Додати спеціальність</strong></h3>
               <label>Назва спеціальності</label>
-              <input type="text" name ="name" class="form-control" />
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                v-model.trim="specialtyForm.name"
+                required
+                autofocus
+              />
 
               <label class="mt-2">Форма здобуття освіти</label>
               <div class="ml-2">
-                <input type="checkbox" />
+                <input type="checkbox" v-model="specialtyForm.fullTime" />
                 Денна
               </div>
               <div class="ml-2">
-                <input type="checkbox" />
+                <input type="checkbox" v-model="specialtyForm.partTime" />
                 Заочна
               </div>
 
               <label class="mt-2">Кваліфікація</label>
-              <input type="text" name ="qualification" class="form-control" />
+              <input
+                type="text"
+                class="form-control"
+                v-model="specialtyForm.qualification"
+                required
+              />
 
               <label class="mt-2">Термін навчання (на основі БЗСО)</label>
-              <input type="text" name = "period" class="form-control" />
+              <input
+                type="text"
+                name="period"
+                class="form-control"
+                v-model="specialtyForm.bzso"
+                required
+              />
 
               <label class="mt-2">Термін навчання (на основі ПЗСО)</label>
-              <input type="text" class="form-control" />
+              <input
+                type="text"
+                class="form-control"
+                v-model="specialtyForm.pzso"
+                required
+              />
 
               <label class="mt-2">Опис</label>
-              <input type="text" name = "description" class="form-control" />
+              <input type="text" class="form-control" v-model="specialtyForm.description" required />
             </div>
+            <p
+              v-if="display"
+              class="text-danger text-center mt-3"
+              style="font-size: 11px"
+            >
+              Оберіть форму навчання
+            </p>
             <div class="mt-3 text-center">
-              <button
-                class="mx-2 button add-button"
-                @click="$bvModal.hide('modal-add')"
-              >
+              <button class="mx-2 button add-button" type="submit">
                 Додати
               </button>
               <button
@@ -155,6 +182,58 @@
     </div>
   </div>
 </template>
+
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      display: false,
+      specialtyForm: {
+        name: null,
+        fullTime: false,
+        partTime: false,
+        qualification: null,
+        bzso: null,
+        pzso: null,
+        description: null,
+      },
+    };
+  },
+  update() {
+    if (this.specialtyForm.fullTime || this.specialtyForm.partTime)
+      this.display = false;
+  },
+  methods: {
+    addSpecialty() {
+      let education_type = null;
+      if (this.specialtyForm.fullTime && this.specialtyForm.partTime) {
+        education_type = "Денна, заочна";
+      } else {
+        if (this.specialtyForm.fullTime) education_type = "Денна";
+        if (this.specialtyForm.partTime) education_type = "Заочна";
+      }
+
+      if (this.specialtyForm.fullTime || this.specialtyForm.partTime) {
+        axios.post("/admin-specialty", {
+          name: this.specialtyForm.name,
+          education_type: education_type,
+          qualification: this.specialtyForm.qualification,
+          study_period:
+            this.specialtyForm.bzso +
+            " – на основі базової загальної середньої освіти; " +
+            this.specialtyForm.pzso +
+            " – на основі повної загальної середньої освіти",
+          description: this.specialtyForm.description,
+        });
+        this.$router.go();
+      } else {
+        this.display = true;
+      }
+    },
+  },
+};
+</script>
 
 <style scoped>
 td {

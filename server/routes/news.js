@@ -5,8 +5,8 @@ const db = require("../config/db");
 router.post("/", async (req, res) => {
   let news = {
     name: req.body.name,
-    image: req.body.img,
-    content: "fff",
+    image: req.body.image,
+    content: req.body.content,
   };
 
   await db.query("INSERT INTO news set ?", news);

@@ -4,11 +4,11 @@ const db = require("../config/db");
 
 router.post("/", async (req, res) => {
   let specialty = {
-  	department_id: "...",
+  	department_id: 0,
     name: req.body.name,
-    education_type: "...",
+    education_type: req.body.education_type,
     qualification: req.body.qualification,
-    study_period: req.body.period,
+    study_period: req.body.study_period,
     description: req.body.description,
   };
 

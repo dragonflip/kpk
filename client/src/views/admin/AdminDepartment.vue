@@ -96,25 +96,45 @@
           hide-footer
           hide-header
         >
-          <form method="post">
+          <form @submit.prevent="addDepartment()">
             <div
               class="d-block text-left"
               style="font-family: 'Montserrat', sans-serif"
             >
               <h3 class="mb-3"><strong>Додати відділення</strong></h3>
               <label>Назва відділення</label>
-              <input type="text" name = "name" class="form-control" />
+              <input type="text" class="form-control" required v-model.trim="DepartmentForm.name"/>
 
               <label class="mt-2">ПІБ завідувача</label>
-              <input type="text" name="head" class="form-control" />
+              <input type="text" class="form-control" required v-model.trim="DepartmentForm.head" />
 
               <label class="mt-2">Контакти відділення</label>
-              <input type="text" name= "contacts" class="form-control" />
+              <input type="text" class="form-control" required v-model.trim="DepartmentForm.contacts" />
 
               <label class="mt-2">Фото</label>
+              <input
+            type="file"
+            ref="fileInput"
+            name = "img"
+            accept=".jpg,.jpeg,.png"
+            hidden="hidden"
+            @change="onFileChange"
+            required
+          />
+          <div>
+            <button
+              type="button"
+              class="mr-2 d-inline button"
+              @click="upload()"
+            >
+              Оберіть файл
+            </button>
+            <span>{{ fileName }}</span>
+          </div>
+          <img :src="DepartmentForm.image" class="mt-2 uploaded-image" />
             </div>
             <div class="mt-3 text-center">
-              <button
+              <button type="submit"
                 class="mx-2 button add-button"
                 @click="$bvModal.hide('modal-add')"
               >
@@ -134,6 +154,53 @@
     </div>
   </div>
 </template>
+
+<script>
+import axios from 'axios';
+export default {
+  data() {
+    return {
+      DepartmentForm: {
+        name: null,
+        head: null,
+        contacts: null,
+        image: null,
+      },
+      fileName: "Файл не вибрано",
+    };
+  },
+  methods: {
+    addDepartment() {
+      axios.post("/admin-department", {
+        name: this.DepartmentForm.name,
+        head: this.DepartmentForm.head,
+        contacts: this.DepartmentForm.contacts,
+        image: this.DepartmentForm.image,
+      });
+      this.$router.push({ name: "AdminDepartment" });
+    },
+    upload() {
+      this.$refs.fileInput.click();
+    },
+
+    onFileChange(event) {
+      var fileData = event.target.files[0];
+      this.fileName = fileData.name;
+
+      const input = this.$refs.fileInput;
+      const files = input.files;
+      if (files && files[0]) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          this.DepartmentForm.image = e.target.result;
+        };
+        reader.readAsDataURL(files[0]);
+        this.$emit("input", files[0]);
+      }
+    },
+  },
+};
+</script>
 
 <style scoped>
 td {

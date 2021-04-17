@@ -4,13 +4,21 @@
       <div class="mt-4">
         <h4>Створення сторінки</h4>
       </div>
-      <form method="post">
+      <form @submit.prevent="addPage()">
         <div class="text-left">
+          <label class="mt-3">Введіть заголовок сторінки: </label>
+          <input
+            type="text"
+            class="ml-4 w-50 w-md-100 form-control"
+            maxlength="50"
+            required
+            v-model.trim="pageForm.title"
+          />
           <label class="mt-3">Оберіть розміщення сторінки: </label>
           <b-form-select
             class="form-select w-50 d-block ml-4 w-md-100"
             @change="onChangeStep()"
-            v-model="placing_step1"
+            v-model="pageForm.placing_step1"
           >
             <b-form-select-option value="1"> Хедер </b-form-select-option>
             <b-form-select-option value="2"> Футер </b-form-select-option>
@@ -19,7 +27,7 @@
           <label class="mt-3">Оберіть розділ: </label>
           <b-form-select
             class="form-select w-50 w-md-100 d-block ml-4"
-            v-model="placing_step2"
+            v-model="pageForm.placing_step2"
           >
             <b-form-select-option
               v-for="section in sections"
@@ -33,21 +41,23 @@
           <label class="mt-3">Введіть URL-адресу сторінки: </label>
           <input
             type="text"
-            name = "url"
             class="ml-4 w-50 w-md-100 form-control"
             maxlength="50"
             required
+            v-model.trim="pageForm.url"
           />
         </div>
         <div class="mt-3 text-left">
           <label>Текст новини: </label>
-          <vue-editor v-model="content"></vue-editor>
+          <vue-editor v-model="pageForm.content"></vue-editor>
         </div>
         <div class="my-5">
           <button class="mx-2 d-inline button admin-button gray">
             Попередній перегляд
           </button>
-          <button class="mx-2 d-inline button admin-button">Створити</button>
+          <button type="submit" class="mx-2 d-inline button admin-button">
+            Створити
+          </button>
         </div>
       </form>
     </div>
@@ -56,6 +66,7 @@
 
 <script>
 import { VueEditor } from "vue2-editor";
+import axios from "axios";
 export default {
   components: {
     VueEditor,
@@ -63,11 +74,17 @@ export default {
 
   data() {
     return {
-      placing_step1: 1,
-      placing_step2: null,
       header_sections: ["Студенту", "Абітурієнту", "Про коледж"],
       footer_sections: ["Розділ1", "Розділ2", "Розділ3", "Розділ4"],
       sections: [],
+
+      pageForm: {
+        title: null,
+        placing_step1: 1,
+        placing_step2: null,
+        url: null,
+        content: null,
+      },
     };
   },
 
@@ -88,6 +105,16 @@ export default {
       }
       this.placing_step2 = this.sections[0];
     },
+    addPage() {
+      axios.post("/create-page", {
+        title: this.pageForm.title,
+        page_placement: this.pageForm.placing_step1,
+        section: this.pageForm.placing_step2,
+        url: this.pageForm.url,
+        content: this.pageForm.content,
+      });
+      this.$router.push({ name: "AdminPages" });
+    },
   },
 };
 </script>
@@ -103,9 +130,9 @@ export default {
   background-color: rgb(109, 109, 109);
 }
 @media (max-width: 992px) {
-    .w-md-100{
-        margin-left: 0 !important;
-        width: 100% !important;
-    }
+  .w-md-100 {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
 }
 </style>

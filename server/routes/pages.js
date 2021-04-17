@@ -4,11 +4,11 @@ const db = require("../config/db");
 
 router.post("/", async (req, res) => {
   let newPage = {
-  	title: "...",
-  	page_placement: "...",
-  	section: "...",
+  	title: req.body.title,
+  	page_placement: req.body.page_placement,
+  	section: req.body.section,
   	url: req.body.url,
-  	content: "...",
+  	content: req.body.content,
   };
 
   await db.query("INSERT INTO pages set ?", newPage);
