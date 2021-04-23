@@ -171,7 +171,7 @@ export default {
   },
   methods: {
     addDepartment() {
-      axios.post("/admin-department", {
+      axios.post("/api/admin-department", {
         name: this.DepartmentForm.name,
         head: this.DepartmentForm.head,
         contacts: this.DepartmentForm.contacts,

@@ -106,7 +106,7 @@ export default {
       this.placing_step2 = this.sections[0];
     },
     addPage() {
-      axios.post("/create-page", {
+      axios.post("/api/create-page", {
         title: this.pageForm.title,
         page_placement: this.pageForm.placing_step1,
         section: this.pageForm.placing_step2,

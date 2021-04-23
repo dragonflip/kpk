@@ -140,7 +140,6 @@
               <label class="mt-2">Термін навчання (на основі БЗСО)</label>
               <input
                 type="text"
-                name="period"
                 class="form-control"
                 v-model="specialtyForm.bzso"
                 required
@@ -215,7 +214,7 @@ export default {
       }
 
       if (this.specialtyForm.fullTime || this.specialtyForm.partTime) {
-        axios.post("/admin-specialty", {
+        axios.post("/api/admin-specialty", {
           name: this.specialtyForm.name,
           education_type: education_type,
           qualification: this.specialtyForm.qualification,

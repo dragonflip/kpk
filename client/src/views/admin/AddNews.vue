@@ -90,7 +90,7 @@ export default {
       }
     },
     addNews() {
-      axios.post("/add-news", {
+      axios.post("/api/add-news", {
         name: this.NewsForm.name,
         image: this.NewsForm.image,
         content: this.NewsForm.content,

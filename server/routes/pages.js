@@ -2,6 +2,13 @@ const { Router } = require("express");
 const router = Router();
 const db = require("../config/db");
 
+router.get("/", async (req, res) => {
+  let [result] = await db.query(
+    `SELECT * FROM pages`
+  );
+  res.json(result);
+});
+
 router.post("/", async (req, res) => {
   let newPage = {
   	title: req.body.title,
