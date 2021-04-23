@@ -29,45 +29,12 @@
         </svg>
         Створити новину
       </router-link>
-      <div class="row mt-4">
-        <div class="col-md-3 col-6">
+      <div class="row my-3">
+        <div class="col-md-3 col-6" v-for="news in news" :key="news.id">
           <div class="card">
-            <img
-              alt="news"
-              class="news-image"
-              src="https://img.pravda.com/images/doc/f/c/fc1f2f4-karantyn-tyn.jpg"
-            />
-            <h6 class="mx-3 my-3">
-              <strong>Карантин продовжено до 07.03</strong>
-            </h6>
-            <hr class="mx-3" />
-            <router-link to="/update-news" class="mx-2 my-2 text-muted">
-              Переглянути
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                fill="currentColor"
-                class="bi bi-arrow-right-short mt-1"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
-                />
-              </svg>
-            </router-link>
-          </div>
-        </div>
-        <div class="col-md-3 col-6">
-          <div class="card">
-            <img
-              alt="news"
-              class="news-image"
-              src="https://img.pravda.com/images/doc/f/c/fc1f2f4-karantyn-tyn.jpg"
-            />
-            <h6 class="mx-3 my-3">
-              <strong>Карантин продовжено до 07.03</strong>
+            <img alt="news" class="news-image" :src="news.image" />
+            <h6 class="mx-3 title-news">
+              <strong>{{ news.name }}</strong>
             </h6>
             <hr class="mx-3" />
             <router-link to="#" class="mx-2 my-2 text-muted view-news">
@@ -93,6 +60,25 @@
   </div>
 </template>
 
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      news: [],
+    };
+  },
+  async created() {
+    try {
+      const res = await axios.get("/api/add-news/");
+      this.news = res.data;
+    } catch (e) {
+      console.error(e);
+    }
+  },
+};
+</script>
+
 <style scoped>
 .button {
   width: fit-content;
@@ -105,6 +91,12 @@
 
 .card {
   border-radius: 0;
+}
+
+.title-news {
+  height: 3.5em;
+  transform: translateY(40%);
+  margin-bottom: 1.5em;
 }
 
 .news-image {

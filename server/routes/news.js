@@ -10,8 +10,14 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = dd + '.' + mm + '.' + yyyy;
   let news = {
-    name: req.body.name,
+    name: req.body.name,  
+    date: today,
     image: req.body.image,
     content: req.body.content,
   };

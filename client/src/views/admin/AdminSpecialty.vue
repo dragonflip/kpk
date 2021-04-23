@@ -40,20 +40,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>121 «Інженерія програмного забезпечення»</td>
-              <td>денна, заочна</td>
-              <td>Технік-програміст</td>
+            <tr v-for="spec in specialties" :key="spec.id">
+              <td> {{ spec.name }}</td>
+              <td> {{ spec.education_type }}</td>
+              <td> {{ spec.qualification}}</td>
               <td>
-                3 роки 10 місяців – на основі базової загальної середньї
-                освіти<br />
-                2 роки 10 місяців – на основі повної загальної середньої освіти
+                {{ spec.study_period }}
               </td>
               <td>
-                Фахівці можуть обіймати такі посади: технік-програміст, фахівець
-                з інформаційних технологій, фахівець з розробки та тестування
-                програмного забезпечення, фахівець з розроблення комп’ютерних
-                програм.
+                {{ spec.description }}
               </td>
               <td>
                 <button
@@ -154,7 +149,12 @@
               />
 
               <label class="mt-2">Опис</label>
-              <input type="text" class="form-control" v-model="specialtyForm.description" required />
+              <input
+                type="text"
+                class="form-control"
+                v-model="specialtyForm.description"
+                required
+              />
             </div>
             <p
               v-if="display"
@@ -197,7 +197,16 @@ export default {
         pzso: null,
         description: null,
       },
+      specialties: []
     };
+  },
+  async created() {
+    try {
+      const res = await axios.get("/api/admin-specialty/");
+      this.specialties = res.data;
+    } catch (e) {
+      console.error(e);
+    }
   },
   update() {
     if (this.specialtyForm.fullTime || this.specialtyForm.partTime)

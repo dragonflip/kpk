@@ -39,13 +39,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Денне відділення комп’ютерних технологій</td>
-              <td>Василишин Володимир Петрович</td>
-              <td>тел. (03433)5-03-57, vasylyshyn8@i.ua</td>
-              <td>
+            <tr v-for="department in departments" :key="department.id">
+              <td>{{ department.name }}</td>
+              <td>{{ department.head }}</td>
+              <td>{{ department.contacts }}</td>
+              <td class="text-center">
                 <img
-                  src="http://kpk-lp.com.ua/wp-content/uploads/2014/02/waszylyszyn.jpg"
+                  :src="department.image"
                 />
               </td>
               <td>
@@ -167,7 +167,16 @@ export default {
         image: null,
       },
       fileName: "Файл не вибрано",
+      departments: [],
     };
+  },
+  async created() {
+    try {
+      const res = await axios.get("/api/admin-department/");
+      this.departments = res.data;
+    } catch (e) {
+      console.error(e);
+    }
   },
   methods: {
     addDepartment() {
@@ -177,7 +186,7 @@ export default {
         contacts: this.DepartmentForm.contacts,
         image: this.DepartmentForm.image,
       });
-      this.$router.push({ name: "AdminDepartment" });
+      this.$router.go()
     },
     upload() {
       this.$refs.fileInput.click();
@@ -214,6 +223,12 @@ td {
 .search {
   position: inherit;
   display: unset;
+}
+
+.table img {
+  max-height: 200px;
+  max-width: 150px;
+  object-fit: contain;
 }
 
 .add-button {
