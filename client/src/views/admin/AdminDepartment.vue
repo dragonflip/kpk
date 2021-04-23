@@ -148,7 +148,7 @@
                 Назад
               </button>
             </div>
-          <form>
+          </form>
         </b-modal>
       </div>
     </div>
